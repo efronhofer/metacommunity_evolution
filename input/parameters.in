@@ -1,0 +1,32 @@
+inputfile for parameters
+
+simulation time (sim_time)
+15000
+number of repeats (max_runs)
+50
+variance used for mutation (mut_sd_disp)
+0
+mutation rate (mut_rate_disp)
+0
+start dispersal value (start_disp); only valid when mut_sd and mut_rate == 0
+0.1
+variance used for mutation (mut_sd_abiot)
+0.06
+mutation rate (mut_rate_abiot)
+0.01
+fertility (lambda_null)
+2
+environmental stochasticity (sigma)
+0
+random patch extinction probability (epsilon)
+0
+dispersal mortality (mu0)
+0.1
+width of local adaptation curve (sigma_env)
+1
+start time of environmental change (env_change_start)
+10000
+magnitude of environmental change (env_change_delta)
+0.001
+end time of environmental change (env_change_end)
+15000
