@@ -1,12 +1,12 @@
 //============================================================================
 // Name        : Metacommunity evolution
 // Author      : Emanuel A. Fronhofer
-// Version     : v0
-// Date	       : March 2018
+// Version     : v1
+// Date	       : June 2019
 //============================================================================
 
 /*
-	Copyright (C) 2018  Emanuel A. Fronhofer
+	Copyright (C) 2019  Emanuel A. Fronhofer
 
 	This program is free software: you can redistribute it and/or modify
 	it under the terms of the GNU General Public License as published by
@@ -26,9 +26,11 @@
 //____________________________________________________________________________
 //----------------------------------------------------------- define constants
 
-const int WORLDDIM = 30;														// world dimensions, always quadratic
+const int WORLDDIM_X = 30;														// world dimensions, always quadratic
+const int WORLDDIM_Y = 1;														// world dimensions, always quadratic
 const int RS = 2;															// random seed
 const int N_ALLELES = 2;
+const int N_LOCI = 1;
 const int NO_SPECIES = 80;
 
 //____________________________________________________________________________
@@ -38,15 +40,17 @@ const int NO_SPECIES = 80;
 class TIndiv {
 public:
 	TIndiv();
-	float dispRate[N_ALLELES];
-	float abiotTrait[N_ALLELES];
+	float dispRate[N_ALLELES][N_LOCI];
+	float abiotTrait[N_ALLELES][N_LOCI];
 	int preChangeLocation;
 };
 
 TIndiv::TIndiv() { //constructor for TIndiv
 	for (int i = 0; i < N_ALLELES; ++i) {
-		dispRate[i] = 0;
-		abiotTrait[i] = 0;
+		for (int act_loc = 0; act_loc < N_LOCI; ++act_loc) {
+			dispRate[i][act_loc] = 0;
+			abiotTrait[i][act_loc] = 0;
+		}
 	}
 	preChangeLocation = 0;
 }

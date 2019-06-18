@@ -1,12 +1,12 @@
 //============================================================================
 // Name        : Metacommunity evolution
 // Author      : Emanuel A. Fronhofer
-// Version     : v0
-// Date	       : March 2018
+// Version     : v1
+// Date	       : March 2019
 //============================================================================
 
 /*
-	Copyright (C) 2018  Emanuel A. Fronhofer
+	Copyright (C) 2019  Emanuel A. Fronhofer
 
 	This program is free software: you can redistribute it and/or modify
 	it under the terms of the GNU General Public License as published by
