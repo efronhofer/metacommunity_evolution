@@ -1,12 +1,12 @@
 //============================================================================
 // Name        : Metacommunity evolution
-// Author      : Emanuel A. Fronhofer
-// Version     : v1
-// Date	       : June 2019
+// Author      : Emanuel A. Fronhofer & Peter Kamal
+// Version     : v2
+// Date	       : November 2024
 //============================================================================
 
 /*
-	Copyright (C) 2019  Emanuel A. Fronhofer
+	Copyright (C) 2024  Emanuel A. Fronhofer & Peter Kamal
 
 	This program is free software: you can redistribute it and/or modify
 	it under the terms of the GNU General Public License as published by
@@ -517,29 +517,29 @@ void Dispersal(){
 				}
 			}
 		}
+	}
 
-		// now that dispersal is over, merge philopatrics and residents
-		for (int x = 0; x < WORLDDIM_X; ++x) {
-			for (int y = 0; y < WORLDDIM_Y; ++y) {
-				for (int s = 0; s < NO_SPECIES; ++s) {
-					// first copy the females
-					for (unsigned int f = 0; f < world[x][y].species[s].newFemales.size(); ++f) {
-						world[x][y].species[s].females.push_back(world[x][y].species[s].newFemales.at(f));
-					}
-					// erase the "old" immigrants from newFemales
-					world[x][y].species[s].newFemales.clear();
-					// then copy the males
-					for (unsigned int m = 0; m < world[x][y].species[s].newMales.size(); ++m) {
-						world[x][y].species[s].males.push_back(world[x][y].species[s].newMales.at(m));
-					}
-					// erase the "old" immigrants from newFemales
-					world[x][y].species[s].newMales.clear();
+	// now that dispersal is over, merge philopatrics and residents
+	for (int x = 0; x < WORLDDIM_X; ++x) {
+		for (int y = 0; y < WORLDDIM_Y; ++y) {
+			for (int s = 0; s < NO_SPECIES; ++s) {
+				// first copy the females
+				for (unsigned int f = 0; f < world[x][y].species[s].newFemales.size(); ++f) {
+					world[x][y].species[s].females.push_back(world[x][y].species[s].newFemales.at(f));
 				}
-
-				rel_emigrants = float(no_emigrants) / float(metapopsize);
-			}
+				// erase the "old" immigrants from newFemales
+				world[x][y].species[s].newFemales.clear();
+				// then copy the males
+				for (unsigned int m = 0; m < world[x][y].species[s].newMales.size(); ++m) {
+					world[x][y].species[s].males.push_back(world[x][y].species[s].newMales.at(m));
+				}
+				// erase the "old" immigrants from newFemales
+				world[x][y].species[s].newMales.clear();
+			}		
 		}
 	}
+	
+	rel_emigrants = float(no_emigrants) / float(metapopsize);
 }
 
 // ------------------------------------------------------------------ mutations for dispersal rate
